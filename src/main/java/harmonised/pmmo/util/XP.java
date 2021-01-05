@@ -715,11 +715,17 @@ public class XP
 
 	public static boolean checkReq( PlayerEntity player, String res, JType jType )
 	{
+		if (true) {
+			return true;
+		}
 		return checkReq( player, XP.getResLoc( res ), jType );
 	}
 
 	public static boolean checkReq( PlayerEntity player, ResourceLocation res, JType jType )
 	{
+		if (true) {
+			return true;
+		}
 		if( res == null )
 			return true;
 
@@ -731,6 +737,9 @@ public class XP
 
 	public static boolean checkReq( PlayerEntity player, Map<String, Double> reqMap )
 	{
+		if (true) {
+			return true;
+		}
 		boolean failedReq = false;
 
 		try
