@@ -161,43 +161,43 @@ public class DamageHandler
                     int weaponGap = XP.getSkillReqGap( player, weaponReq );
                     int enchantGap = XP.getSkillReqGap( player, XP.getEnchantsUseReq( player.getHeldItemMainhand() ) );
                     int gap = Math.max( weaponGap, enchantGap );
-                    if( gap > 0 )
-                    {
-                        if( enchantGap < gap )
-                            NetworkHandler.sendToPlayer( new MessageDoubleTranslation( "pmmo.notSkilledEnoughToUseAsWeapon", player.getHeldItemMainhand().getTranslationKey(), "", true, 2 ), (ServerPlayerEntity) player );
-                        if( Config.forgeConfig.strictReqWeapon.get() )
-                        {
-                            event.setCanceled( true );
-                            return;
-                        }
-                    }
+//                    if( gap > 0 )
+//                    {
+//                        if( enchantGap < gap )
+//                            NetworkHandler.sendToPlayer( new MessageDoubleTranslation( "pmmo.notSkilledEnoughToUseAsWeapon", player.getHeldItemMainhand().getTranslationKey(), "", true, 2 ), (ServerPlayerEntity) player );
+//                        if( Config.forgeConfig.strictReqWeapon.get() )
+//                        {
+//                            event.setCanceled( true );
+//                            return;
+//                        }
+//                    }
 
                     int killGap = 0;
 
-                    if( target.getEntityString() != null )
-                    {
-                        killGap = XP.getSkillReqGap( player, XP.getResLoc( target.getEntityString() ), JType.REQ_KILL );
-                        if( killGap > 0 )
-                        {
-                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToDamage", new TranslationTextComponent( target.getType().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToDamage", new TranslationTextComponent( target.getType().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), false );
-
-                            for( Map.Entry<String, Double> entry : JsonConfig.data.get( JType.REQ_KILL ).get( target.getEntityString() ).entrySet() )
-                            {
-                                int level = Skill.getLevel( entry.getKey(), player );
-
-                                if( level < entry.getValue() )
-                                    player.sendStatusMessage( new TranslationTextComponent( "pmmo.levelDisplay", new TranslationTextComponent( "pmmo." + entry.getKey() ), "" + (int) Math.floor( entry.getValue() ) ).setStyle( XP.textStyle.get( "red" ) ), false );
-                                else
-                                    player.sendStatusMessage( new TranslationTextComponent( "pmmo.levelDisplay", new TranslationTextComponent( "pmmo." + entry.getKey() ), "" + (int) Math.floor( entry.getValue() ) ).setStyle( XP.textStyle.get( "green" ) ), false );
-                            }
-                        }
-                        if( Config.forgeConfig.strictReqKill.get() )
-                        {
-                            event.setCanceled( true );
-                            return;
-                        }
-                    }
+//                    if( target.getEntityString() != null )
+//                    {
+//                        killGap = XP.getSkillReqGap( player, XP.getResLoc( target.getEntityString() ), JType.REQ_KILL );
+//                        if( killGap > 0 )
+//                        {
+//                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToDamage", new TranslationTextComponent( target.getType().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToDamage", new TranslationTextComponent( target.getType().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), false );
+//
+//                            for( Map.Entry<String, Double> entry : JsonConfig.data.get( JType.REQ_KILL ).get( target.getEntityString() ).entrySet() )
+//                            {
+//                                int level = Skill.getLevel( entry.getKey(), player );
+//
+//                                if( level < entry.getValue() )
+//                                    player.sendStatusMessage( new TranslationTextComponent( "pmmo.levelDisplay", new TranslationTextComponent( "pmmo." + entry.getKey() ), "" + (int) Math.floor( entry.getValue() ) ).setStyle( XP.textStyle.get( "red" ) ), false );
+//                                else
+//                                    player.sendStatusMessage( new TranslationTextComponent( "pmmo.levelDisplay", new TranslationTextComponent( "pmmo." + entry.getKey() ), "" + (int) Math.floor( entry.getValue() ) ).setStyle( XP.textStyle.get( "green" ) ), false );
+//                            }
+//                        }
+//                        if( Config.forgeConfig.strictReqKill.get() )
+//                        {
+//                            event.setCanceled( true );
+//                            return;
+//                        }
+//                    }
                     damage = event.getAmount();
                     float amount = 0;
                     float playerHealth = player.getHealth();

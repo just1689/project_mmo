@@ -40,22 +40,22 @@ public class BreakSpeedHandler
         int gap = Math.max( toolGap, enchantGap );
         boolean reqMet = XP.checkReq( player, event.getState().getBlock().getRegistryName(), JType.REQ_BREAK );
 
-        if( !reqMet )
-        {
-            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToBreak", new TranslationTextComponent( event.getState().getBlock().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-            event.setCanceled( true );
-            return;
-        }
-        else if( gap > 0 )
-        {
-            if( enchantGap < gap )
-                player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToUseAsTool", new TranslationTextComponent( player.getHeldItemMainhand().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-            if( Config.getConfig( "strictReqTool" ) == 1 )
-            {
-                event.setCanceled( true );
-                return;
-            }
-        }
+//        if( !reqMet )
+//        {
+//            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToBreak", new TranslationTextComponent( event.getState().getBlock().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//            event.setCanceled( true );
+//            return;
+//        }
+//        else if( gap > 0 )
+//        {
+//            if( enchantGap < gap )
+//                player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToUseAsTool", new TranslationTextComponent( player.getHeldItemMainhand().getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//            if( Config.getConfig( "strictReqTool" ) == 1 )
+//            {
+//                event.setCanceled( true );
+//                return;
+//            }
+//        }
 
         int startLevel = Skill.getLevel( skill, player );
 

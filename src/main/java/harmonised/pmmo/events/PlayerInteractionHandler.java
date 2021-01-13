@@ -52,44 +52,44 @@ public class PlayerInteractionHandler
                 boolean isRemote = player.world.isRemote();
                 boolean matched;
 
-                if( event instanceof PlayerInteractEvent.RightClickItem)
-                {
-                    if( XP.isPlayerSurvival( player ) )
-                    {
-                        if( JsonConfig.data2.get( JType.SALVAGE ).containsKey( regKey ) )
-                        {
-                            matched = XP.scanBlock( smithBlock, 1, player );
-                            if( !matched )
-                                matched = XP.scanBlock( goldBlock, 1, player );
+//                if( event instanceof PlayerInteractEvent.RightClickItem)
+//                {
+//                    if( XP.isPlayerSurvival( player ) )
+//                    {
+//                        if( JsonConfig.data2.get( JType.SALVAGE ).containsKey( regKey ) )
+//                        {
+//                            matched = XP.scanBlock( smithBlock, 1, player );
+//                            if( !matched )
+//                                matched = XP.scanBlock( goldBlock, 1, player );
+//
+//                            if( matched )
+//                            {
+//                                event.setCanceled( true );
+//
+////							if( isRemote )
+////								player.sendStatusMessage( new TranslationTextComponent( "pmmo.cannotUseProximity", new TranslationTextComponent( matchedBlock.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//                            }
+//                        }
+//                    }
+//                }
 
-                            if( matched )
-                            {
-                                event.setCanceled( true );
-
-//							if( isRemote )
-//								player.sendStatusMessage( new TranslationTextComponent( "pmmo.cannotUseProximity", new TranslationTextComponent( matchedBlock.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-                            }
-                        }
-                    }
-                }
-
-                if( item instanceof BlockItem )
-                {
-                    if( !XP.checkReq( player, item.getRegistryName(), JType.REQ_PLACE ) )
-                    {
-                        event.setCanceled( true );
-
-                        if( isRemote )
-                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToPlaceDown", new TranslationTextComponent( item.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-                    }
-                }
-                else if( !XP.checkReq( player, item.getRegistryName(), JType.REQ_USE ) )
-                {
-                    event.setCanceled( true );
-
-                    if( isRemote )
-                        player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToUse", new TranslationTextComponent( item.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
-                }
+//                if( item instanceof BlockItem )
+//                {
+//                    if( !XP.checkReq( player, item.getRegistryName(), JType.REQ_PLACE ) )
+//                    {
+//                        event.setCanceled( true );
+//
+//                        if( isRemote )
+//                            player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToPlaceDown", new TranslationTextComponent( item.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//                    }
+//                }
+//                else if( !XP.checkReq( player, item.getRegistryName(), JType.REQ_USE ) )
+//                {
+//                    event.setCanceled( true );
+//
+//                    if( isRemote )
+//                        player.sendStatusMessage( new TranslationTextComponent( "pmmo.notSkilledEnoughToUse", new TranslationTextComponent( item.getTranslationKey() ) ).setStyle( XP.textStyle.get( "red" ) ), true );
+//                }
 
                 if( event instanceof PlayerInteractEvent.RightClickBlock)
                 {
